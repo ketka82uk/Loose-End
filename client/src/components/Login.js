@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import logo from '../images/logo.png'
 
 function Login({ history }) {
-
-  const logo = '././images/logo.png'
 
   const [formData, updateFormData] = useState({
     email: '',
