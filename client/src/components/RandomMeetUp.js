@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import RingLoader from 'react-spinners/RingLoader'
+import Moment from 'react-moment'
 
-function RandomRestaurant() {
+
+function RandomMeetUp() {
   const [event, updateEvent] = useState([])
   const [loading, updateLoading] = useState(true)
 
@@ -14,7 +16,7 @@ function RandomRestaurant() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get('/api/restaurants')
+      const { data } = await axios.get('/api/meetUps')
       updateEvent(data)
       updateLoading(false)
     }
@@ -27,12 +29,9 @@ function RandomRestaurant() {
     </div>
   }
 
-  const cardStyle = {
-    height: '380px'
-  }
 
-  return <Link to={`/activities/${event[num1]._id}`}>
-    <div className="card homepage-card" style={cardStyle}>
+  return <Link to={`/meetUp/${event[num1]._id}`}>
+    <div className="card homepage-card">
       <div className="card-image">
         <figure className="image is-4by3">
           <img src={event[num1].image} alt="Placeholder image" />
@@ -42,7 +41,7 @@ function RandomRestaurant() {
         <div className="media">
           <div className="media-content">
             <p className="title is-4">{event[num1].name}</p>
-            <p className="subtitle is-6">{event[num1].address1}</p>
+            <p className="subtitle is-6"><Moment format="DD MMMM, YYYY">{event[num1].date}</Moment></p>
           </div>
         </div>
       </div>
@@ -50,4 +49,4 @@ function RandomRestaurant() {
   </Link >
 }
 
-export default RandomRestaurant
+export default RandomMeetUp

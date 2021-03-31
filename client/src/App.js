@@ -37,6 +37,7 @@ import './styles/ollieStyle.scss'
 import 'bulma'
 import './styles/style.scss'
 
+
 const App = () => {
   return <BrowserRouter>
     <Navbar />

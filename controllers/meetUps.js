@@ -2,6 +2,15 @@ import MeetUps from '../models/meetUps.js'
 import Restaurant from '../models/restaurants.js'
 import mongoose from 'mongoose'
 
+async function getAllMeetUps(_req, res, next) {
+  try {
+    const MeetUpList = await MeetUps.find().populate('user')
+    res.send(MeetUpList)
+  } catch (err) {
+    next(err)
+  }
+}
+
 async function getMeetUpsByLD(req, res, next) {
   const location = req.params.location
   const date = req.params.date
@@ -141,7 +150,7 @@ async function deleteComment(req, res, next) {
 }
 
 export default {
-  
+  getAllMeetUps,
   getMeetUpsByLD,
   getMeetUpsByLDC,
   postMeetUp,

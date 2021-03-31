@@ -21,6 +21,7 @@ router.route('/images/:imageId')
   .get(image.getSingleImage)
   
 //* MEET-UPS
+
 router.route('/singleMeetUp/update/:meetUpId')
   .get(meetUps.getSingleMeetUpUpdate)
 router.route('/meetUps/:location/:date')
@@ -36,6 +37,8 @@ router.route('/singleMeetUp/:meetUpId')
  
 router.route('/meetUps')
   .post(secureRoute, meetUps.postMeetUp)
+  .get(meetUps.getAllMeetUps)
+
 
 // RESTAURANTS
 

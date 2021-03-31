@@ -16,6 +16,7 @@ const Geography = () => {
   const [type, updateType] = useState('All')
   const [search, updateSearch] = useState('')
   const [loading, updateLoading] = useState(true)
+  const [labelIsShown, updateLabelIsShown] = useState(false)
 
 
   // ? The library requires some starting state, which I'm defining here
@@ -23,7 +24,7 @@ const Geography = () => {
     height: '100vh',
     width: '100vw',
     // zoom is how zoomed in you are
-    zoom: 10.1,
+    zoom: 12,
     // ? Starting lat and long, so that its centered in a good place.
     latitude: 51.515,
     longitude: -0.078
@@ -62,6 +63,7 @@ const Geography = () => {
     })
   }
 
+
   return <MapGL
     // ? Spread out all my viewport properties into the MapGL component
     // ? as props.
@@ -92,9 +94,14 @@ const Geography = () => {
           latitude={poi.latlng[0]}
           longitude={poi.latlng[1]}
         >
-          <Link to={`poi/${poi._id}`}>
-            <p className="map-label">{poi.name}</p>
-          </Link>
+
+          <div className="map-item"
+            onMouseOver={() => updateLabelIsShown(true)}
+            onMouseLeave={() => updateLabelIsShown(false)}>
+            <div className="map-emoji">📍</div>
+            {labelIsShown &&
+              <Link to={`poi/${poi._id}`}><div>{poi.name}</div></Link>}
+          </div>
         </Marker>
       </div>
     }

@@ -34,7 +34,7 @@ function RandomEvent() {
 
   return <div>
     <Link to={`/poi/${event[num1]._id}`}>
-      <div className="card" style={cardStyle}>
+      <div className="card homepage-card" style={cardStyle}>
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={event[num1].image} alt="Placeholder image" />

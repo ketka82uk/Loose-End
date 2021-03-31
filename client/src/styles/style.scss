@@ -1,3 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+$font-stack: 'Montserrat', sans-serif;
+$primary-color: #ffba40ff;
+$light-color: #fff8e1;
+$navbar-dropdown-arrow: #ffba40ff;
+$dark-gray: #363636;
+
+// * MAIN BODY AND GENERAL ELEMENTS
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: $primary-color;
+}
+
+:hover.a {
+  color: $dark-gray;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+option {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.is-yellow-button {
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+:hover.is-yellow-button {
+  color: $dark-gray;
+}
+
+.yellow-section {
+  background-color: $light-color
+}
+
+.gray-section {
+  background-color: lightgray
+}
+
+.centered-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+// * BULMA OVERRIDE
+
+.button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#navbar-link-override:hover {
+  color: $primary-color;
+  font-weight: bold;
+}
+
+navbar-link::-ms-expand {
+  border-color: $primary-color
+}
+
+// * HOME PAGE
+
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: $primary-color;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tagline-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.title-style {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  color: $primary-color;
+}
+
+.register-button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: white !important;
+  background-color: $primary-color;
+  padding: 15px;
+  border: none;
+  width: 50%;
+  border-radius: 5px;
+}
+
+:hover.register-button {
+  color: $dark-gray !important;
+}
+
+.home-page-search-section {
+ margin-top: 50px;
+}
+
+.home-page-searchbar {
+  background-color: lightgray;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.homepage-link {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+#button-link {
+  color: white;
+}
+
+:hover#button-link{
+  color: $dark-gray !important;
+}
+
+
+#homepage-select {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.mission-statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.homepage-card {
+  height: 400px;
+}
+
+
+// * HORIZONTAL SCROLLING
+
 .scrolling-wrapper {
   display: flex;
   flex-direction: row;
@@ -144,12 +308,16 @@
   justify-content: center;
 }
 
+.map-item {
+  border: 1px solid black;
+}
+
 .map-label {
-  background-color: black;
-  color: white;
-  padding: 1%;
+  background: white;
+  border: 1px solid gray;
   text-align: center;
   border-radius: 3px;
+  padding: 10px;
 }
 
 .card-footer {
@@ -167,3 +335,12 @@
  margin-bottom: 15px;
 }
 
+//* FOOTER
+
+small {
+  font-size: 11px;
+}
+
+.footer-bottom {
+  margin-top: 100px;
+}

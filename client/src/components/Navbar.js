@@ -32,7 +32,7 @@ function Navbar({ history }) {
   return <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link className="navbar-item" to={'/home'}>
-        <img src={logo} />
+        <div className="logo-text">Loose End</div>
       </Link>
       <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -42,99 +42,99 @@ function Navbar({ history }) {
     </div>
     <div id="navbarBasicExample" className="navbar-menu">
       <div className="navbar-start">
-        <Link className="navbar-item" to={'/home'}>
+
+        <Link className="navbar-item" id="navbar-link-override" to={'/'}>
           Home
         </Link>
-        {!loggedInUser._id &&
-        <Link className="navbar-item" to={'/meetUpSearch'}>
-          MeetUps
-        </Link>}
+
         {loggedInUser._id &&
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
-            MeetUps
-          </a>
-          <div className="navbar-dropdown">
-            <Link className="navbar-item" to={'/meetUpSearch'}>
-              Search MeetUps
-            </Link>
-            <Link className="navbar-item" to={'/createMeetUp'}>
-            Create MeetUp
-            </Link>
-          </div>
-        </div>}
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link is-arrowless" id="navbar-link-override">
+              MeetUps
+            </a>
+            <div className="navbar-dropdown">
+              <Link className="navbar-item" to={'/meetUpSearch'}>
+                Search MeetUps
+              </Link>
+              <Link className="navbar-item" to={'/createMeetUp'}>
+                Create MeetUp
+              </Link>
+            </div>
+          </div>}
         {!loggedInUser._id &&
-        <Link className="navbar-item" to={'/groups'}>
-          Groups
-        </Link>} 
-        {loggedInUser._id &&
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
+          <Link className="navbar-item" id="navbar-link-override" to={'/groups'}>
             Groups
-                 </a>
-          <div className="navbar-dropdown">
-            <Link className="navbar-item" to={'/groups'}>
-              Find Group
-            </Link> 
-            <Link className="navbar-item" to={'/groups/create-group'}>
-              Create Group
-            </Link>
-          </div>
-        </div>} 
+          </Link>}
+        {loggedInUser._id &&
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link is-arrowless" id="navbar-link-override">
+              Groups
+            </a>
+            <div className="navbar-dropdown">
+              <Link className="navbar-item" to={'/groups'}>
+                Find Group
+              </Link>
+              <Link className="navbar-item" to={'/groups/create-group'}>
+                Create Group
+              </Link>
+            </div>
+          </div>}
         <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
+          <a className="navbar-link is-arrowless" id="navbar-link-override">
             Activities
-                 </a>
+          </a>
           <div className="navbar-dropdown">
             <Link className="navbar-item" to={'/map'}>
               Activity Map
-                   </Link>
+            </Link>
             <Link className="navbar-item" to={'/activities/food-and-drink'}>
               Food & Drink
-                   </Link>
+            </Link>
             <Link className="navbar-item" to={'/poi'}>
-              Points of Interest
-                   </Link>
+              Places to visit
+            </Link>
           </div>
         </div>
-        <Link className="navbar-item" to={'/about'}>
+        <Link className="navbar-item" id="navbar-link-override" to={'/about'}>
           About
         </Link>
       </div>
 
       <div className="navbar-end">
 
-        {loggedInUser._id && 
-        <div className="navbar-item">
-          <div className="navbar-item has-dropdown is-hoverable">
-            <figure className="image is-32x32">
-              <img className="is-rounded" src={loggedInUser.image} />
-            </figure>
-            <a className="navbar-link"></a>
-
-            <div className="navbar-dropdown">
-              <p className="navbar-item tag">{loggedInUser.firstName + ' ' + loggedInUser.lastName}</p>
-              <Link className="navbar-item" to={`/profile/${loggedInUser._id}`}>
-                Profile
-                     </Link>
-              <Link className="navbar-item" to={`/inbox/${loggedInUser._id}`}>
-                Messages
-                     </Link>
+        {loggedInUser._id &&
+          <div className="navbar-item">
+            <div className="navbar-item has-dropdown is-hoverable">
+              <figure className="image is-32x32">
+                <img className="is-rounded" src={loggedInUser.image} />
+              </figure>
+              <div className="control-row">
+                <p className="bold-text ml-2">{loggedInUser.firstName}</p>
+                <a className="navbar-link is-arrowless" id="navbar-link-override"></a>
+              </div>
+              <div className="navbar-dropdown">
+                <p className="navbar-item bold-text">{loggedInUser.firstName + ' ' + loggedInUser.lastName}</p>
+                <Link className="navbar-item" to={`/profile/${loggedInUser._id}`}>
+                  Profile
+                </Link>
+                <Link className="navbar-item" to={`/inbox/${loggedInUser._id}`}>
+                  Messages
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>}
+          </div>}
         <div className="navbar-item">
           <div className="buttons">
             {loggedInUser.length === 0 &&
-              <Link className="button is-warning" to={'/login'}>
+              <Link className="button is-yellow-button" to={'/login'}>
                 Log in
-                   </Link>}
+              </Link>}
             {loggedInUser.length === 0 &&
               <Link className="button is-light" to={'/register'}>
                 <strong>Sign up</strong>
-              </Link>}           
+              </Link>}
             {loggedInUser._id &&
-            <button className="button is-warning" onClick={logout}>Sign Out</button>}
+              <button className="button is-warning" onClick={logout}>Sign Out</button>}
           </div>
         </div>
       </div>

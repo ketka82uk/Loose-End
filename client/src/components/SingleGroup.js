@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { getLoggedInUserId, isCreator } from '../lib/auth'
 import { Link } from 'react-router-dom'
+import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 
 export default function SingleGroup({ match, history }) {
@@ -94,13 +96,50 @@ export default function SingleGroup({ match, history }) {
     history.push('/')
   }
 
+  function GroupAvatars() {
+    return (
+      <AvatarGroup max={4}>
+        {group.members.map((member) => {
+          return <Avatar alt={member.firstName} key={member._id} src={member.image} />
+        })}
+      </AvatarGroup>
+    )
+  }
+
+
+  // {group.members.map((member) => {
+  //   return <div className="column is-one-quarter" key={member._id}>
+  //     <Link key={member.name} to={{
+  //       pathname: `/profile/${member._id}`
+  //     }}>
+  //       <div className="card">
+  //         <div className="card-image">
+  //           <figure className="image is-4by3">
+  //             <img src={member.image} />
+  //           </figure>
+  //         </div>
+  //         <div className="card-content">
+  //           <div className="content">
+  //             <h2 className="title is-3">{member.firstName}</h2>
+  //             <h2 className="subtitle">{member.lastName}</h2>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </Link>
+  //   </div>
+  // })}
+
+
+
+
+
 
   if (loading) {
     return <h1>Loading</h1>
   }
 
 
-  
+
 
   return <div className="main">
 
@@ -223,29 +262,7 @@ export default function SingleGroup({ match, history }) {
               <div className="content">
                 <h2 className="title is-3">Group Members</h2>
 
-                <div className="columns is-multiline">
-                  {group.members.map((member) => {
-                    return <div className="column is-one-quarter" key={member._id}>
-                      <Link key={member.name} to={{
-                        pathname: `/profile/${member._id}`
-                      }}>
-                        <div className="card">
-                          <div className="card-image">
-                            <figure className="image is-4by3">
-                              <img src={member.image} />
-                            </figure>
-                          </div>
-                          <div className="card-content">
-                            <div className="content">
-                              <h2 className="title is-3">{member.firstName}</h2>
-                              <h2 className="subtitle">{member.lastName}</h2>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  })}
-                </div>
+                <GroupAvatars />
               </div>
             </div>
           </div>
@@ -263,7 +280,7 @@ export default function SingleGroup({ match, history }) {
           <h2 className="title">Get together!</h2>
           <h2 className="subtitle">Loose End meet-ups organised by {group.name}</h2>
           <div className="button is-danger">Create meetup for {group.name}</div>
-          
+
           <div className="scrolling-wrapper">
 
             <div className="scrolling-card-small card">
