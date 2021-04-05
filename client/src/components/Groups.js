@@ -52,7 +52,7 @@ const Groups = ({ history }) => {
     // * TITLE SECTION
     */}
 
-    <section className="hero is-warning">
+    <section className="hero yellow-section">
       <div className="hero-body">
         <p className="title">
           Groups
@@ -67,62 +67,68 @@ const Groups = ({ history }) => {
     // * LEVEL SECTION
     */}
 
-    <div className="container mb-4">
+    <section className="gray-section">
 
-      <div className="level mt-2">
-        <div className="level-left"></div>
-        {loggedIn && <div className="level-right">
-          <div className="level-item">
-            <div className="subtitle">No group to join?</div>
-          </div><div className="level-item">
-            <div className="is-link is-warning is-light subtitle"><Link to='/groups/create-group'>Add your own</Link></div>
-          </div>
-        </div>}
+
+      <div className="container mb-4">
+
+        <div className="level mt-2">
+          <div className="level-left"></div>
+          {loggedIn && <div className="level-right">
+            <div className="level-item">
+              <div className="subtitle">No group to join?</div>
+            </div><div className="level-item">
+              <div className="is-link is-warning is-light subtitle"><Link to='/groups/create-group'>Add your own</Link></div>
+            </div>
+          </div>}
+        </div>
+
       </div>
+    </section>
 
-      {/*
+    {/*
     // * BODY SECTION
     */}
 
-      <div className="section">
-        <div className="columns">
-          <div className="column"></div>
+    <div className="section">
+      <div className="columns">
+        <div className="column"></div>
 
 
-          <div className="column is-two-thirds">
-            <div className="card">
-              <div className="card-content">
+        <div className="column is-two-thirds">
+          <div className="card">
+            <div className="card-content">
 
-                <div className="content">
-                  <h1 className="title">Join your people!</h1>
-                  <p className="is-size-5">Loose End Groups lets you create meet-ups only with others from your network.</p>
-                  <p className="is-size-5">If you have been invited to join a group, enter your unique group passcode below to access the group page.</p>
+              <div className="content">
+                <h1 className="title">Join your people!</h1>
+                <p className="is-size-5">Loose End Groups lets you create meet-ups only with others from your network.</p>
+                <p className="is-size-5">If you have been invited to join a group, enter your unique group passcode below to access the group page.</p>
+              </div>
+              <div className="content">
+                <div className="field">
+                  <label className="label"></label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Enter group passcode"
+                      onChange={handleChange}
+                      value={inputValue}></input>
+                  </div>
                 </div>
                 <div className="content">
-                  <div className="field">
-                    <label className="label"></label>
-                    <div className="control">
-                      <input
-                        className="input"
-                        type="text"
-                        placeholder="Enter group passcode"
-                        onChange={handleChange}
-                        value={inputValue}></input>
-                    </div>
-                  </div>
-                  <div className="content">
-                    <button className="button is-warning" onClick={handleSubmit}>Submit</button>
-                    <NoPasscodeMatch />
-                  </div>
+                  <button className="button is-yellow-button" onClick={handleSubmit}>Submit</button>
+                  <NoPasscodeMatch />
                 </div>
               </div>
             </div>
           </div>
-          <div className="column"></div>
         </div>
+        <div className="column"></div>
       </div>
     </div>
   </div>
+
 }
 
 export default Groups

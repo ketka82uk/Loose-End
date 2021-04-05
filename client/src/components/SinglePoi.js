@@ -68,9 +68,9 @@ export default function SinglePoi({ match, history }) {
     return null
   }
 
-  return <div className="individual-site-page">
+  return <div>
     <div className="column">
-      <header className="card-header">
+      <header className="card-header yellow-section">
         <p className="card-header-title is-centered">{poi.name}</p>
       </header>
 

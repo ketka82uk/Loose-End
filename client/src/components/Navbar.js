@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { getLoggedInUserId } from '../lib/auth.js'
 import axios from 'axios'
-import logo from '../images/logo.png'
 
 function Navbar({ history }) {
 
@@ -47,6 +46,10 @@ function Navbar({ history }) {
           Home
         </Link>
 
+        {!loggedInUser._id &&
+          <Link className="navbar-item" id="navbar-link-override" to={'/meetUpSearch'}>
+            Meet ups
+          </Link>}
         {loggedInUser._id &&
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-arrowless" id="navbar-link-override">

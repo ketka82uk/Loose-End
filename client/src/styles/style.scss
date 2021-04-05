@@ -26,7 +26,11 @@ input {
 }
 
 option {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+select {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .bold-text {
@@ -213,7 +217,7 @@ navbar-link::-ms-expand {
   display: flex;
   flex-direction: row;
   height: 200px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 15px;
 }
 
@@ -224,20 +228,20 @@ navbar-link::-ms-expand {
 .horizontal-card-image {
   display: flex;
   flex: 1;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 5px 0px 0px 5px;
 }
 
 .horizontal-card-content {
   display: flex;
   flex: 3;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 5px 5px 0px;
   font-weight: bold;
 }
 
 .horizontal-card-content-right {
   display: flex;
   flex: 1;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 5px 5px 0px;
   font-weight: bold;
   justify-content: flex-end;
   align-items: flex-end;
@@ -295,6 +299,12 @@ navbar-link::-ms-expand {
 
 
 // POI 
+
+.description-text {
+  font-size: 16px;
+  font-weight: normal;
+}
+
 .poi {
   width: 40%;
   display: flex;
@@ -333,6 +343,12 @@ navbar-link::-ms-expand {
 .group-image {
  height: 300px;
  margin-bottom: 15px;
+}
+
+// * MEET-UP PAGE
+
+.meetup-card {
+  height: 450px;
 }
 
 //* FOOTER
