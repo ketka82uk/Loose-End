@@ -13,9 +13,9 @@ Check out Loose End [here](https://loose-end-ga.herokuapp.com/)
 ### The brief
 * Work in a team of four, using git to code collaborative.
 * Build a full-stack application in one week, by making your own backend and your own front-end.
-* Use an Express API to serve your data from a Mongo database
-* Consume your API with a separate front-end built with React
-* Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
+* Use an Express API to serve your data from a Mongo database.
+* Consume your API with a separate front-end built with React.
+* Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models.
 
 ### Technologies
 * __Frontend:__
@@ -24,6 +24,7 @@ Check out Loose End [here](https://loose-end-ga.herokuapp.com/)
 * Bulma
 * ReactJS
 * Webpack
+
 * __Backend:__
 * Express
 * MongoDB
